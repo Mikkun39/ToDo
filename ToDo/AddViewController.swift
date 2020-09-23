@@ -8,9 +8,7 @@
 
 import UIKit
 
-var toDoList = [String]()
-
-class AddViewController: UIViewController {
+class AddViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet var toDoTextField: UITextField!
     
@@ -30,13 +28,15 @@ class AddViewController: UIViewController {
         //変数の中身をUDに追加
         UserDefaults.standard.set(toDoList, forKey: "TodoList")
         
+        //Navigation Controllerを取得
+        let nav = self.presentingViewController  as! UINavigationController
+
         // 親VCを取り出し
-        let parentVC = presentingViewController as! ViewController
+        let firstVC = nav.viewControllers[nav.viewControllers.count-1] as! ViewController
         
-        parentVC.table.reloadData()
-        
+        firstVC.table.reloadData()
+
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

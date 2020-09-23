@@ -8,6 +8,8 @@
 
 import UIKit
 
+var toDoList = [String]()
+
 class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
     var saveData: UserDefaults = UserDefaults.standard
@@ -23,6 +25,8 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         if UserDefaults.standard.object(forKey: "TodoList") != nil {
             toDoList = UserDefaults.standard.object(forKey: "TodoList") as! [String]
         }
+        table.dataSource = self
+        table.delegate = self
     }
     
     /// 画面再表示
@@ -32,6 +36,8 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         if UserDefaults.standard.object(forKey: "TodoList") != nil {
             toDoList = UserDefaults.standard.object(forKey: "TodoList") as! [String]
         }
+        
+        reloadData()
     }
     
     //UITableView、numberOfRowsInSectionの追加(表示するcell数を決める)
@@ -60,6 +66,10 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
             UserDefaults.standard.removeObject(forKey: "TodoList")
             UserDefaults.standard.set(toDoList, forKey: "TodoList" )
         }
+    }
+    
+    func reloadData() {
+        table.reloadData()
     }
 
 }
