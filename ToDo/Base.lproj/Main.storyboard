@@ -14,7 +14,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W1z-8y-yLo">
@@ -85,7 +85,6 @@
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="save" destination="cke-A7-iqf" eventType="touchUpInside" id="jHj-M3-yz1"/>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="Lap-Lo-fjT"/>
                                 </connections>
                             </button>
                         </subviews>

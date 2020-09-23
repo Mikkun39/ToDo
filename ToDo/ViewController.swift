@@ -25,6 +25,15 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         }
     }
     
+    /// 画面再表示
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //追加画面で入力した内容を取得する
+        if UserDefaults.standard.object(forKey: "TodoList") != nil {
+            toDoList = UserDefaults.standard.object(forKey: "TodoList") as! [String]
+        }
+    }
+    
     //UITableView、numberOfRowsInSectionの追加(表示するcell数を決める)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //戻り値の設定(表示するcell数)

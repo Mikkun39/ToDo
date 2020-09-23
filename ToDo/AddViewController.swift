@@ -28,7 +28,15 @@ class AddViewController: UIViewController {
         toDoTextField.text = ""
         
         //変数の中身をUDに追加
-        UserDefaults.standard.set(toDoList, forKey: "TodoList" )
+        UserDefaults.standard.set(toDoList, forKey: "TodoList")
+        
+        // 親VCを取り出し
+        let parentVC = presentingViewController as! ViewController
+        
+        parentVC.table.reloadData()
+        
+        self.dismiss(animated: true, completion: nil)
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
